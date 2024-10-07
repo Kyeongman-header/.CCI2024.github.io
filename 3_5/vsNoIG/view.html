@@ -79,9 +79,9 @@
         const comparisonType = path[2];  // 예: 'vsDOC', 'vsNoIG', 'vsNoMW'
         
         // CCI와 DOC 파일 경로 동적으로 설정
-        const cciFile = `https://raw.githubusercontent.com/your-username/your-repo/main/${folder}/CCI_${folder}_${comparisonNumber}.txt`;
+        const cciFile = `https://raw.githubusercontent.com/Kyeongman-header/CCI2024.github.io/master/${folder}/CCI_${folder}_${comparisonNumber}.txt`;
         //const docFile = `https://raw.githubusercontent.com/your-username/your-repo/main/${folder}/DOC_${folder}_${comparisonNumber}.txt`;
-        const docFile = `https://raw.githubusercontent.com/your-username/your-repo/main/${folder}/${comparisonType === 'vsDOC' ? 'DOC' : comparisonType.split('vs')[1]}_${folder}_${comparisonNumber}.txt`;
+        const docFile = `https://raw.githubusercontent.com/Kyeongman-header/CCI2024.github.io/master/${folder}/${comparisonType === 'vsDOC' ? 'DOC' : comparisonType.split('vs')[1]}_${folder}_${comparisonNumber}.txt`;
 
         // 파일 불러와서 내용 넣기
         fetch(cciFile)
