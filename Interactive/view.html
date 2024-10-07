@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comparison</title>
+    <title>Interactive CCI vs NoMW Comparison</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -44,14 +44,14 @@
 </head>
 <body>
 
-    <h1>Comparison</h1>
+    <h1>CCI vs NoMW Comparison</h1>
 
     <div class="container">
         <div class="box" id="cci_box">
             <!-- CCI 파일 내용이 여기에 들어갑니다 -->
         </div>
-        <div class="box" id="doc_box">
-            <!-- DOC 파일 내용이 여기에 들어갑니다 -->
+        <div class="box" id="nomw_box">
+            <!-- NoMW 파일 내용이 여기에 들어갑니다 -->
         </div>
     </div>
 
@@ -71,29 +71,26 @@
     </footer>
 
     <script>
-        // URL에서 폴더 경로와 파일 번호 가져오기
-        const path = window.location.pathname.split('/');
-        const folder = path[1];  // 예: '3_5' 또는 '4o'
+        // URL에서 name 파라미터 가져오기
         const urlParams = new URLSearchParams(window.location.search);
-        const comparisonNumber = urlParams.get('n') || '1';  // n 값이 없으면 1로 설정
-        const comparisonType = path[2];  // 예: 'vsDOC', 'vsNoIG', 'vsNoMW'
+        const name = urlParams.get('name');
         
-        // CCI와 DOC 파일 경로 동적으로 설정
-        const cciFile = `https://raw.githubusercontent.com/Kyeongman-header/CCI2024/master/${folder}/CCI_${folder}_${comparisonNumber}.txt`;
-        //const docFile = `https://raw.githubusercontent.com/your-username/your-repo/main/${folder}/DOC_${folder}_${comparisonNumber}.txt`;
-        const docFile = `https://raw.githubusercontent.com/Kyeongman-header/CCI2024/master/${folder}/${comparisonType === 'vsDOC' ? 'DOC' : comparisonType.split('vs')[1]}_${folder}_${comparisonNumber}.txt`;
+        // CCI와 NoMW 파일 경로 설정
+        const cciFile = `https://raw.githubusercontent.com/your-username/CCI2024/master/Interactive/CCI_${name}/CCI_${name}_1.txt`;
+        const nomwFile = `https://raw.githubusercontent.com/your-username/CCI2024/master/Interactive/NoMW_${name}/NoMW_${name}_1.txt`;
 
-        // 파일 불러와서 내용 넣기
+        // CCI 파일 불러와서 내용 표시
         fetch(cciFile)
             .then(response => response.text())
             .then(data => {
                 document.getElementById('cci_box').textContent = data;
             });
 
-        fetch(docFile)
+        // NoMW 파일 불러와서 내용 표시
+        fetch(nomwFile)
             .then(response => response.text())
             .then(data => {
-                document.getElementById('doc_box').textContent = data;
+                document.getElementById('nomw_box').textContent = data;
             });
     </script>
 </body>
