@@ -63,7 +63,7 @@
         .abstract {
             text-align: center;
             margin: 30px 0;
-            font-size: 1.1em;
+            font-size: 1em; /* 글씨 크기를 약간 작게 변경 */
             line-height: 1.6;
             max-width: 800px;
             margin-left: auto;
@@ -73,32 +73,34 @@
             font-style: italic;
         }
         .our-results {
-            font-family: 'Georgia', serif; /* 글씨체 변경 */
+            font-family: 'Georgia', serif;
             font-weight: bold;
-            font-size: 1.5em;
-            text-decoration: underline; /* 밑줄 추가 */
+            font-size: 1.5em; /* Our Results 크기를 조금 더 크게 */
+            text-decoration: underline;
         }
-                /* CCI 링크에 대한 스타일 */
         .cci-link {
-            font-family: 'Courier New', Courier, monospace; /* 다른 글씨체로 변경 */
+            font-family: 'Courier New', Courier, monospace;
             font-size: 1.1em;
-            color: #000080; /* 색상 변경 */
+            color: #000080;
         }
         .main-figure {
             display: block;
             margin: 20px auto;
             max-width: 100%;
             height: auto;
-            width: 600px; /* 이미지의 최대 너비를 설정하여 크기 조정 */
+            width: 700px; /* 이미지의 최대 너비를 더 크게 설정 */
+        }
+        /* Experiments 제목 스타일 */
+        .experiment-title {
+            color: blue; /* 파란색으로 변경 */
+            text-decoration: underline; /* 밑줄 추가 */
+            font-size: 1.2em; /* Our Results보다 더 작게 설정 */
         }
     </style>
 </head>
 <body>
 
     <!-- 논문 제목 및 저자 정보 -->
-    <!-- <div class="title">
-        A Character-Centric Creative Story Generation via Imagination
-    </div> -->
     <div class="title">
         A Character-Centric Creative Story Generation via Imagination
     </div>
@@ -124,14 +126,14 @@
     <div class="container">
         <!-- 3.5 Experiment Section -->
         <div class="experiment">
-            <h2 class="our-results">Our Results.</h2>
+            <h2 class="experiment-title">Our Results.</h2>
             <ul>
                 <li><a class="cci-link" href="https://kyeongman-header.github.io/CCI2024/CCI_Generations/3_5/">CCI-3.5</a></li>
                 <li><a class="cci-link" href="https://kyeongman-header.github.io/CCI2024/CCI_Generations/4o/">CCI-4o</a></li>
             </ul>
         </div>
         <div class="experiment">
-            <h2>Experiments 1; GPT-3.5 ver. Comparisons. </h2>
+            <h2 class="experiment-title">Experiments 1; GPT-3.5 ver. Comparisons.</h2>
             <ul>
                 <li><a href="https://kyeongman-header.github.io/CCI2024/3_5/vsDOC/">CCI vs DOC</a></li>
                 <li><a href="https://kyeongman-header.github.io/CCI2024/3_5/vsNoIG/">CCI vs NoIG</a></li>
@@ -141,7 +143,7 @@
 
         <!-- 4.0 Experiment Section -->
         <div class="experiment">
-            <h2>Experiments 2; GPT-4o ver. Comparisons.</h2>
+            <h2 class="experiment-title">Experiments 2; GPT-4o ver. Comparisons.</h2>
             <ul>
                 <li><a href="https://kyeongman-header.github.io/CCI2024/4o/vsDOC/">CCI vs DOC</a></li>
                 <li><a href="https://kyeongman-header.github.io/CCI2024/4o/vsNoIG/">CCI vs NoIG</a></li>
@@ -149,7 +151,7 @@
             </ul>
         </div>
         <div class="experiment">
-            <h2>Experiments 3; Human Interactive Stories.</h2>
+            <h2 class="experiment-title">Experiments 3; Human Interactive Stories.</h2>
             <ul>
                 <li><a href="https://kyeongman-header.github.io/CCI2024/Interactive/">CCI vs DOC</a></li>
             </ul>
