@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CCI Output with Images</title>
     <style>
+        .keyword {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        hr {
+            margin: 20px 0;
+            border: 0;
+            border-top: 1px solid #ccc;
+        }
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
@@ -101,7 +111,18 @@
         fetch(cciFile)
             .then(response => response.text())
             .then(data => {
-                document.getElementById('output_box').textContent = data;
+                // 키워드 배열 (여기에 필요한 키워드 추가 가능)
+                const keywords = ["Characters:", "Backgrounds:", "Main Plot:", "Story:"];
+
+                // 텍스트 내용 수정 (줄바꿈 및 키워드 강조)
+                let formattedText = data;
+                keywords.forEach(keyword => {
+                    const regex = new RegExp(keyword, "g");
+                    formattedText = formattedText.replace(regex, `<hr><span class="keyword">${keyword}</span>`);
+                });
+
+                // 변환된 내용을 텍스트 박스에 삽입
+                document.getElementById('output_box').innerHTML = formattedText;
             });
     </script>
 
