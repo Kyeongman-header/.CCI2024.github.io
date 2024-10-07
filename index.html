@@ -78,6 +78,19 @@
             font-size: 1.5em;
             text-decoration: underline; /* 밑줄 추가 */
         }
+                /* CCI 링크에 대한 스타일 */
+        .cci-link {
+            font-family: 'Courier New', Courier, monospace; /* 다른 글씨체로 변경 */
+            font-size: 1.1em;
+            color: #000080; /* 색상 변경 */
+        }
+        .main-figure {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+            height: auto;
+            width: 600px; /* 이미지의 최대 너비를 설정하여 크기 조정 */
+        }
     </style>
 </head>
 <body>
@@ -98,6 +111,7 @@
     <div class="emails">
         zzangmane@snu.ac.kr, minbeomkim@snu.ac.kr, kjung@snu.ac.kr
     </div>
+    <img src="main_figure.png" alt="Main Figure" class="main-figure">
     <div class="abstract">
         <h2>Abstract</h2>
         <p><span class="italic">Creative</span> story generation with diverse and detailed story elements is a long-standing goal for large language models. While existing methodologies generate long and coherent stories, they fall significantly short of human capabilities in terms of diversity and character detail.</p>
@@ -112,8 +126,8 @@
         <div class="experiment">
             <h2 class="our-results">Our Results.</h2>
             <ul>
-                <li><a href="https://kyeongman-header.github.io/CCI2024/CCI_Generations/3_5/">CCI-3.5</a></li>
-                <li><a href="https://kyeongman-header.github.io/CCI2024/CCI_Generations/4o/">CCI-4o</a></li>
+                <li><a class="cci-link" href="https://kyeongman-header.github.io/CCI2024/CCI_Generations/3_5/">CCI-3.5</a></li>
+                <li><a class="cci-link" href="https://kyeongman-header.github.io/CCI2024/CCI_Generations/4o/">CCI-4o</a></li>
             </ul>
         </div>
         <div class="experiment">
