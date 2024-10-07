@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparison</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        .box {
+            width: 45%;
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ccc;
+            overflow: auto;
+            height: 300px;
+            resize: both;
+        }
+        hr {
+            margin: 30px 0;
+        }
+        .questions {
+            margin-top: 20px;
+        }
+        .questions p {
+            margin-bottom: 10px;
+        }
+        footer {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Comparison</h1>
+
+    <div class="container">
+        <div class="box" id="cci_box">
+            <!-- CCI 파일 내용이 여기에 들어갑니다 -->
+        </div>
+        <div class="box" id="doc_box">
+            <!-- DOC 파일 내용이 여기에 들어갑니다 -->
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="questions">
+        <h2>Survey Questions</h2>
+        <p>1. Character-Coherent. Which model’s final output better maintains the character’s personality?</p>
+        <p>2. Character-Vivid. Which model’s final output depicts the character more vividly?</p>
+        <p>3. Coherence. Which model’s final output has a more coherent story?</p>
+        <p>4. Concreteness. Which model’s story elements are more concrete?</p>
+        <p>5. Novelty. Which model’s story elements are more novel?</p>
+    </div>
+
+    <footer>
+        <p>© 2024 Text Comparison</p>
+    </footer>
+
+    <script>
+        // URL에서 폴더 경로와 파일 번호 가져오기
+        const path = window.location.pathname.split('/');
+        const folder = path[1];  // 예: '3_5' 또는 '4o'
+        const urlParams = new URLSearchParams(window.location.search);
+        const comparisonNumber = urlParams.get('n') || '1';  // n 값이 없으면 1로 설정
+        const comparisonType = path[2];  // 예: 'vsDOC', 'vsNoIG', 'vsNoMW'
+        
+        // CCI와 DOC 파일 경로 동적으로 설정
+        const cciFile = `https://raw.githubusercontent.com/your-username/your-repo/main/${folder}/CCI_${folder}_${comparisonNumber}.txt`;
+        //const docFile = `https://raw.githubusercontent.com/your-username/your-repo/main/${folder}/DOC_${folder}_${comparisonNumber}.txt`;
+        const docFile = `https://raw.githubusercontent.com/your-username/your-repo/main/${folder}/${comparisonType === 'vsDOC' ? 'DOC' : comparisonType.split('vs')[1]}_${folder}_${comparisonNumber}.txt`;
+
+        // 파일 불러와서 내용 넣기
+        fetch(cciFile)
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('cci_box').textContent = data;
+            });
+
+        fetch(docFile)
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('doc_box').textContent = data;
+            });
+    </script>
+</body>
+</html>

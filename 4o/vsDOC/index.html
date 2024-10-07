@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3_5 vsDOC Comparison</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            margin: 10px 0;
+        }
+        a {
+            text-decoration: none;
+            color: #4CAF50;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .drag {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            cursor: move;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>3_5 vsDOC Comparison</h1>
+
+    <div class="container">
+        <div class="drag" draggable="true">
+            Drag this list to see comparisons for each n
+        </div>
+        
+        <ul>
+            <li><a href="view.html?n=1">Compare CCI_4o_1 and DOC_4o_1</a></li>
+            <li><a href="view.html?n=2">Compare CCI_4o_2 and DOC_4o_2</a></li>
+            <li><a href="view.html?n=3">Compare CCI_4o_3 and DOC_4o_3</a></li>
+            <li><a href="view.html?n=4">Compare CCI_4o_4 and DOC_4o_4</a></li>
+            <li><a href="view.html?n=5">Compare CCI_4o_5 and DOC_4o_5</a></li>
+            <!-- 필요에 따라 더 많은 링크 추가 -->
+        </ul>
+    </div>
+
+    <script>
+        // 드래그 가능 기능 추가 (간단히 이벤트 핸들러를 추가)
+        const dragItem = document.querySelector(".drag");
+
+        dragItem.addEventListener('dragstart', () => {
+            dragItem.style.backgroundColor = '#ddd';
+        });
+
+        dragItem.addEventListener('dragend', () => {
+            dragItem.style.backgroundColor = '#f9f9f9';
+        });
+    </script>
+
+</body>
+</html>
