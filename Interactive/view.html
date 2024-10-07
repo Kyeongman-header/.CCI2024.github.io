@@ -13,6 +13,26 @@
         h1 {
             text-align: center;
         }
+        .image-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .image-container img {
+            width: 32%; /* 화면을 3등분 */
+            height: auto;
+            border: 1px solid #ccc;
+        }
+        .image-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .image-labels div {
+            width: 32%;
+            text-align: center;
+        }
         .container {
             display: flex;
             justify-content: space-between;
@@ -46,6 +66,21 @@
 
     <h1>CCI vs NoMW Comparison</h1>
 
+    <!-- 이미지 3장 추가 -->
+    <div class="image-container">
+        <img id="back_img" src="" alt="Background Image">
+        <img id="char_img" src="" alt="Character Image">
+        <img id="climax_img" src="" alt="Climax Image">
+    </div>
+
+    <!-- 이미지 레이블 -->
+    <div class="image-labels">
+        <div>Background</div>
+        <div>Character</div>
+        <div>Climax</div>
+    </div>
+
+    <!-- 텍스트 비교 영역 -->
     <div class="container">
         <div class="box" id="cci_box">
             <!-- CCI 파일 내용이 여기에 들어갑니다 -->
@@ -74,10 +109,20 @@
         // URL에서 name 파라미터 가져오기
         const urlParams = new URLSearchParams(window.location.search);
         const name = urlParams.get('name');
-        
+
         // CCI와 NoMW 파일 경로 설정
         const cciFile = `https://raw.githubusercontent.com/your-username/CCI2024/master/Interactive/CCI_${name}/CCI_${name}_1.txt`;
         const nomwFile = `https://raw.githubusercontent.com/your-username/CCI2024/master/Interactive/NoMW_${name}/NoMW_${name}_1.txt`;
+
+        // 이미지 경로 설정
+        const backImg = `https://raw.githubusercontent.com/your-username/CCI2024/master/Interactive/${name}/back.jpg`;
+        const charImg = `https://raw.githubusercontent.com/your-username/CCI2024/master/Interactive/${name}/char.jpg`;
+        const climaxImg = `https://raw.githubusercontent.com/your-username/CCI2024/master/Interactive/${name}/climax.jpg`;
+
+        // 이미지 로드
+        document.getElementById('back_img').src = backImg;
+        document.getElementById('char_img').src = charImg;
+        document.getElementById('climax_img').src = climaxImg;
 
         // CCI 파일 불러와서 내용 표시
         fetch(cciFile)
