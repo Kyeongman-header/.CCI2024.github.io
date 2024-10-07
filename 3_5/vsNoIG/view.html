@@ -98,10 +98,10 @@
     <script>
         // URL에서 폴더 경로와 파일 번호 가져오기
         const path = window.location.pathname.split('/');
-        const folder = path[1];  // 예: '3_5' 또는 '4o'
+        const folder = path[path.length - 3];
         const urlParams = new URLSearchParams(window.location.search);
         const comparisonNumber = urlParams.get('n') || '1';  // n 값이 없으면 1로 설정
-        const comparisonType = path[2];  // 예: 'vsDOC', 'vsNoIG', 'vsNoMW'
+        const comparisonType = path[path.length - 2];  // 예: 'vsDOC', 'vsNoIG', 'vsNoMW'
         
         // CCI와 DOC 파일 경로 동적으로 설정
         const cciFile = `https://raw.githubusercontent.com/Kyeongman-header/CCI2024/master/${folder}/CCI_${folder}/CCI_${folder}_${comparisonNumber}.txt`;
