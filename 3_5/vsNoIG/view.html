@@ -28,8 +28,11 @@
             justify-content: space-between;
             margin-bottom: 30px;
         }
+        .story-box { /* story-title과 box를 묶는 컨테이너 */
+            width: 45%; /* 각 박스가 차지하는 너비 */
+        }
         .box {
-            width: 45%;
+            width: 100%; /* 부모 컨테이너 내에서 100% 너비 */
             padding: 20px;
             background-color: white;
             border: 1px solid #ccc;
@@ -63,13 +66,17 @@
     <h1>vs NoIG-3.5 Comparison</h1>
 
     <div class="container">
-        <div class="story-title">Story 1</div>
-        <div class="box" id="cci_box">
-            <!-- CCI 파일 내용이 여기에 들어갑니다 -->
+        <div class="story-box"> <!-- Story 1을 위한 그룹 -->
+            <div class="story-title">Story 1</div>
+            <div class="box" id="cci_box">
+                <!-- CCI 파일 내용이 여기에 들어갑니다 -->
+            </div>
         </div>
-        <div class="story-title">Story 2</div>
-        <div class="box" id="doc_box">
-            <!-- DOC 파일 내용이 여기에 들어갑니다 -->
+        <div class="story-box"> <!-- Story 2를 위한 그룹 -->
+            <div class="story-title">Story 2</div>
+            <div class="box" id="doc_box">
+                <!-- DOC 파일 내용이 여기에 들어갑니다 -->
+            </div>
         </div>
     </div>
 
@@ -97,9 +104,9 @@
         const comparisonType = path[2];  // 예: 'vsDOC', 'vsNoIG', 'vsNoMW'
         
         // CCI와 DOC 파일 경로 동적으로 설정
-        const cciFile = `https://raw.githubusercontent.com/Kyeongman-header/CCI2024/master/${folder}/CCI_${folder}_${comparisonNumber}.txt`;
+        const cciFile = `https://raw.githubusercontent.com/Kyeongman-header/CCI2024/master/${folder}/CCI_${folder}/CCI_${folder}_${comparisonNumber}.txt`;
         //const docFile = `https://raw.githubusercontent.com/your-username/your-repo/main/${folder}/DOC_${folder}_${comparisonNumber}.txt`;
-        const docFile = `https://raw.githubusercontent.com/Kyeongman-header/CCI2024/master/${folder}/${comparisonType === 'vsDOC' ? 'DOC' : comparisonType.split('vs')[1]}_${folder}_${comparisonNumber}.txt`;
+        const docFile = `https://raw.githubusercontent.com/Kyeongman-header/CCI2024/master/${folder}/${comparisonType === 'vsDOC' ? 'DOC' : comparisonType.split('vs')[1]}_${folder}/${comparisonType === 'vsDOC' ? 'DOC' : comparisonType.split('vs')[1]}_${folder}_${comparisonNumber}.txt`;
 
         // 파일 불러와서 내용 넣기
         fetch(cciFile)
