@@ -119,12 +119,25 @@
                 // 키워드 배열 (여기에 필요한 키워드 추가 가능)
                 const keywords = ["Title:", "Characters:", "Background:", "Main Plot:", "Story:"];
 
+                // Background 관련 처리를 위한 정규식 (Background부터 다음 키워드 전까지)
+                const backgroundRegex = /Background:(.*?)(?=Main Plot:|Story:|$)/gs;
+
                 // 텍스트 내용 수정 (줄바꿈 및 키워드 강조)
                 let formattedText = data;
                 keywords.forEach(keyword => {
                     const regex = new RegExp(keyword, "g");
                     formattedText = formattedText.replace(regex, `<hr><span class="keyword">${keyword}</span>`);
                 });
+
+                // Background 관련 내용 추출 및 변환
+                const backgroundMatches = formattedText.match(backgroundRegex);
+                if (backgroundMatches) {
+                    backgroundMatches.forEach(match => {
+                        // 매치된 Background 섹션을 강조 (추출된 내용 포함)
+                        const highlightedMatch = `<hr><span class="keyword">Background:</span>${match.trim()}`;
+                        formattedText = formattedText.replace(match, highlightedMatch);
+                    });
+                }
 
                 // 변환된 내용을 텍스트 박스에 삽입
                 document.getElementById('cci_box').innerHTML = formattedText;
@@ -136,12 +149,25 @@
                 // 키워드 배열 (여기에 필요한 키워드 추가 가능)
                 const keywords = ["Title:", "Characters:", "Background:", "Main Plot:", "Story:"];
 
+                // Background 관련 처리를 위한 정규식 (Background부터 다음 키워드 전까지)
+                const backgroundRegex = /Background:(.*?)(?=Main Plot:|Story:|$)/gs;
+
                 // 텍스트 내용 수정 (줄바꿈 및 키워드 강조)
                 let formattedText = data;
                 keywords.forEach(keyword => {
                     const regex = new RegExp(keyword, "g");
                     formattedText = formattedText.replace(regex, `<hr><span class="keyword">${keyword}</span>`);
                 });
+
+                // Background 관련 내용 추출 및 변환
+                const backgroundMatches = formattedText.match(backgroundRegex);
+                if (backgroundMatches) {
+                    backgroundMatches.forEach(match => {
+                        // 매치된 Background 섹션을 강조 (추출된 내용 포함)
+                        const highlightedMatch = `<hr><span class="keyword">Background:</span>${match.trim()}`;
+                        formattedText = formattedText.replace(match, highlightedMatch);
+                    });
+                }
 
                 // 변환된 내용을 텍스트 박스에 삽입
                 document.getElementById('doc_box').innerHTML = formattedText;
