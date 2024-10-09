@@ -153,7 +153,7 @@
                 if (backgroundMatches) {
                     backgroundMatches.forEach(match => {
                         // 매치된 Background 섹션을 강조 (추출된 내용 포함)
-                        const highlightedMatch = `<hr><span class="keyword">Background:</span>`;
+                        const highlightedMatch = `<hr><span class="keyword">Background:</span>${match.trim()}`;
 
                         formattedText = formattedText.replace(match, highlightedMatch);
                     });
